@@ -1,0 +1,222 @@
+/* タブレット用スタイル (481px〜1024px) */
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+    body {
+        padding: 15px;
+    }
+
+    .container {
+        padding: 25px;
+        border-radius: 18px;
+        max-width: 900px;
+    }
+
+    h1 {
+        font-size: 2.2em;
+        margin-bottom: 25px;
+    }
+
+    .toolbar {
+        flex-direction: row;
+        gap: 15px;
+        padding: 18px;
+        margin-bottom: 18px;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .tool-group {
+        min-width: 200px;
+        padding: 12px 18px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .tool-group:nth-child(3) {
+        width: 100%;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .tool-group:nth-child(3) button {
+        flex: 1;
+        max-width: 150px;
+        padding: 14px 18px;
+        font-size: 15px;
+    }
+
+    label {
+        font-size: 15px;
+        font-weight: 600;
+    }
+
+    input[type="color"] {
+        width: 55px;
+        height: 45px;
+        border-radius: 10px;
+    }
+
+    input[type="range"] {
+        width: 130px;
+        height: 6px;
+        -webkit-appearance: none;
+        background: linear-gradient(to right, #ddd, #667eea);
+        border-radius: 8px;
+        outline: none;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 20px;
+        height: 20px;
+        background: linear-gradient(45deg, #667eea, #764ba2);
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    input[type="range"]::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+        background: linear-gradient(45deg, #667eea, #764ba2);
+        border-radius: 50%;
+        cursor: pointer;
+        border: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .brush-size-display {
+        background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+        color: #495057;
+        padding: 6px 12px;
+        border-radius: 8px;
+        font-weight: bold;
+        font-size: 15px;
+        min-width: 35px;
+        border: 1px solid #dee2e6;
+    }
+
+    button {
+        padding: 13px 18px;
+        font-size: 15px;
+        border-radius: 10px;
+        font-weight: 600;
+        min-height: 45px;
+        touch-action: manipulation;
+    }
+
+    button:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    }
+
+    button:active {
+        transform: scale(0.99);
+    }
+
+    .canvas-container {
+        margin-bottom: 18px;
+    }
+
+    canvas {
+        max-width: 100%;
+        height: auto;
+        border-radius: 12px;
+        border: 2px solid #ddd;
+        touch-action: none;
+    }
+
+    .save-section {
+        padding: 18px;
+        border-radius: 12px;
+    }
+
+    .save-section h3 {
+        font-size: 1.15em;
+        margin-bottom: 15px;
+    }
+
+    .save-buttons {
+        flex-direction: row;
+        gap: 12px;
+        justify-content: center;
+    }
+
+    .save-buttons button {
+        min-width: 180px;
+        padding: 15px 25px;
+        font-size: 15px;
+    }
+
+    /* タブレット縦向け用の調整 */
+    @media screen and (min-width: 481px) and (max-width: 768px) and (orientation: portrait) {
+        .toolbar {
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .tool-group {
+            width: 100%;
+            min-width: auto;
+        }
+
+        .tool-group:nth-child(3) {
+            flex-direction: row;
+            gap: 10px;
+        }
+
+        .tool-group:nth-child(3) button {
+            flex: 1;
+            max-width: none;
+        }
+
+        canvas {
+            width: 100%;
+            height: 400px;
+        }
+    }
+
+    /* タブレット横向け用の調整 */
+    @media screen and (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            grid-template-rows: auto 1fr auto;
+            gap: 20px;
+            grid-template-areas: 
+                "header header"
+                "toolbar canvas"
+                "save save";
+        }
+
+        h1 {
+            grid-area: header;
+        }
+
+        .toolbar {
+            grid-area: toolbar;
+            flex-direction: column;
+            height: fit-content;
+            margin-bottom: 0;
+        }
+
+        .canvas-container {
+            grid-area: canvas;
+            margin-bottom: 0;
+        }
+
+        .save-section {
+            grid-area: save;
+        }
+
+        canvas {
+            width: 100%;
+            height: 450px;
+        }
+    }
+
+    /* タッチデバイス用の調整 */
+    * {
+        -webkit-tap-highlight-color: transparent;
+    }
+}
