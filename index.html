@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お絵描きアプリ</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 お絵描きアプリ</h1>
+        
+        <div class="toolbar">
+            <div class="tool-group">
+                <label for="colorPicker">色:</label>
+                <input type="color" id="colorPicker" value="#000000">
+            </div>
+            
+            <div class="tool-group">
+                <label for="brushSize">ブラシサイズ:</label>
+                <input type="range" id="brushSize" min="1" max="50" value="5">
+                <span class="brush-size-display" id="brushSizeDisplay">5</span>
+            </div>
+            
+            <div class="tool-group">
+                <button id="clearBtn">🗑️ クリア</button>
+                <button id="eraserBtn">🧽 消しゴム</button>
+                <button id="penBtn">✏️ ペン</button>
+            </div>
+        </div>
+
+        <div class="canvas-container">
+            <canvas id="drawingCanvas" width="800" height="600"></canvas>
+        </div>
+
+        <div class="save-section">
+            <h3>💾 作品を保存</h3>
+            <div class="save-buttons">
+                <button id="savePNG">PNG形式で保存</button>
+                <button id="saveJPG">JPG形式で保存</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
